@@ -7,13 +7,20 @@ import org.json.simple.parser.ParseException;
 import com.jda.Utility.Utility;
 import com.jda.serviceImplementation.AddressBookImplementation;
 import com.jda.serviceImplementation.AddressBookManagerImplementation;
+import com.jda.serviceImplementation.Jdbc;
 
 public class AddressBookMain {
-public static void main(String[] args) throws NumberFormatException, IOException, ParseException{
+public static void main(String[] args) throws Exception{
 	Utility util=new Utility();
 	AddressBookManagerImplementation addressBookManagerImpementation=new AddressBookManagerImplementation();
-	
-	
+	int value=0;
+	System.out.println("1. to Json  2. to JDBC");
+	value=Integer.parseInt(util.getInputStringline());
+	if(value==2) {
+		Jdbc jdbc=new Jdbc();
+		Jdbc.manager();
+	}
+	else {
 	int choice;
 	do{
 		AddressBookImplementation addressBookImplementation= new AddressBookImplementation();
@@ -26,5 +33,5 @@ public static void main(String[] args) throws NumberFormatException, IOException
 	}while (choice!=0);
 	
 	
-}
+}}
 }
